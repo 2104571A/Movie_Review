@@ -1,4 +1,5 @@
 var express = require("express"); //using the express web framework
+const port = 3000;
 
 var movieController = require('./controllers/movieController'); // set movieController to the movieController class
 var app = express(); // set variable app to be an instance of express framework. From now on, app is the express
@@ -10,6 +11,5 @@ app.use(express.json()); // json() is a method inbuilt in express to recognize t
 app.route('/movies').get(movieController.getAllMovies); // activate the getAllMovies method if the route is GET(method) /movies
 
 
-
-app.listen(3000, "127.0.0.1"); // start the nodejs to be listening for incoming request @ port 8080
-console.log("web server running @ http://127.0.0.1:3000"); // output to console
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
+//console.log("web server running @ http://127.0.0.1:3000"); // output to console
